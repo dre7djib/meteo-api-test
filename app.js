@@ -5,6 +5,8 @@ fetch(weather)
     const adviceElement = document.createElement('p');
     adviceElement.innerHTML = `${data.daily.temperature_2m_max[0]}${data.daily_units.temperature_2m_max}`;
     document.getElementById("div2").appendChild(adviceElement);
+
+    
 })
 
 
