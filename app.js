@@ -1,11 +1,20 @@
+const listDiv_Day = ['div4','div5','div6','div7','div8'];
+
+
 const weather = 'https://api.open-meteo.com/v1/forecast?latitude=48.8534&longitude=2.3488&daily=temperature_2m_max';
 fetch(weather)
 .then(response => response.json())
 .then(data => {
-    const adviceElement = document.createElement('p');
-    adviceElement.innerHTML = `${data.daily.temperature_2m_max[0]}${data.daily_units.temperature_2m_max}`;
-    document.getElementById("div2").appendChild(adviceElement);
+    const temperature = document.createElement('p');
+    temperature.innerHTML = `${data.daily.temperature_2m_max[0]}${data.daily_units.temperature_2m_max}`;
+    document.getElementById("div2").appendChild(temperature);
 
+    // Affichage des jours suivants
+    for (let i = 0; i < length.listDiv_Day; i++) {
+      const day = document.createElement('p');
+      day.innerHTML = `${data.daily.time[i]}`;
+      document.getElementById(listDiv_Day[i]).appendChild(day);
+    }
     
 })
 
